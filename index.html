@@ -488,13 +488,13 @@
       // 問題文
       const qUtter = new window.SpeechSynthesisUtterance(q.question);
       qUtter.lang = 'ja-JP';
-      qUtter.rate = 1.2;
+      qUtter.rate = 0.9;
       utterances.push(qUtter);
       // 選択肢
       q.choices.forEach((choice, i) => {
         const choiceUtter = new window.SpeechSynthesisUtterance(`${i+1}、${choice}`);
         choiceUtter.lang = 'ja-JP';
-        choiceUtter.rate = 1.2;
+        choiceUtter.rate = 0.9;
         utterances.push(choiceUtter);
       });
       // 読み上げ実行
@@ -513,11 +513,11 @@
             const ansText = `正解は、選択肢${q.correct_option_index+1}。${q.choices[q.correct_option_index]}`;
             const ansUtter = new window.SpeechSynthesisUtterance(ansText);
             ansUtter.lang = 'ja-JP';
-            ansUtter.rate = 1.2;
+            ansUtter.rate = 0.9;
             // 解説
             const expUtter = new window.SpeechSynthesisUtterance(q.explanation);
             expUtter.lang = 'ja-JP';
-            expUtter.rate = 1.2;
+            expUtter.rate = 0.9;
             window.speechSynthesis.speak(ansUtter);
             ansUtter.onend = () => {
               window.speechSynthesis.speak(expUtter);
