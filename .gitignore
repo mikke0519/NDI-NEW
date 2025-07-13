@@ -1,0 +1,21 @@
+# Ignore macOS/Linux/Windows system files
+.DS_Store
+Thumbs.db
+
+# Node modules (if ever used)
+node_modules/
+
+# Logs
+*.log
+
+# Package lock files
+package-lock.json
+yarn.lock
+
+# Build output
+/dist/
+/build/
+
+# Editor settings
+.vscode/
+.idea/
