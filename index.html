@@ -214,7 +214,7 @@
   </div>
   <script>
     // --- 問題データ ---
-    const quizData = [
+    let quizData = [
 
       {id:"1.1",question:"1.1~次の文は、渦電流探傷試験を適用する試験体について述べたものである。正しいものを一つ選び、記号で答えなさい。",choices:["強磁性体でなければならない。","非磁性体でなければならない。","導体でなければならない。","絶縁体でなければならない。"],correct_option_index:2,explanation:"渦電流探傷試験は、電磁誘導現象を利用して導体内に渦電流を発生させる手法です。そのため、試験対象は電気を通す導体である必要があります。"},
       {id:"1.2",question:"1.2~次の文は、渦電流探傷試験において試験体に誘導される渦電流について述べたものである。正しいものを一つ選び、記号で答えなさい。",choices:["コイルの熱の作用によって誘導される。","コイルの磁束の作用によって誘導される。","コイルの表皮効果によって試験体に誘導される。","コイルの端末効果によって試験体に誘導される。"],correct_option_index:1,explanation:"試験コイルに交流を流すと時間的に変化する磁束が発生します。この交流磁束が導体を貫くことで、磁束の変化を打ち消す向きに渦電流が誘導されます。これを電磁誘導現象といいます。"},
@@ -290,7 +290,7 @@
   {id:"2.31",question:"2.31~次の文は、回路素子に交流電圧を加えたときの電圧と電流の位相について述べたものである。正しいものを一つ選び、記号で答えよ。",choices:["インダクタンスの場合、電圧は電流に対してπ/4遅れる。","インダクタンスの場合、電圧と電流は同位相である。","抵抗の場合、電圧は電流に対してπ/4進む。","抵抗の場合、電圧と電流は同位相である。"],correct_option_index:3,explanation:"抵抗では電圧と電流は同位相です。インダクタンスでは電圧が電流に対してπ/2進みます。"},
 
   {id:"2.32",question:"2.32~図2.5は交流正弦波電流と電圧の波形を示している。電圧の位相は電流に対してどのような関係にあるか。次のうちから正しいものを一つ選び、記号で答えなさい。",choices:["π/2 (rad)進んでいる。","π/2 (rad)遅れている。","π/4 (rad)進んでいる。","π/4 (rad)遅れている。"],correct_option_index:0,explanation:"図2.5を見ると、電圧波形(v(t))のピークが電流波形(i(t))のピークよりも時間的に早く現れています。電圧が最大値を取る(ωt=0)とき、電流は0であり、その後電圧が0になる(ωt=π/2)ときに電流が最大値を取るため、電圧は電流に対してπ/2進んでいます。"},
->>>>>>> 6e6d08a (index.htmlの変更を保存)
+
   {id:"2.33",question:"2.33~抵抗に正弦波交流電流が流れているとき、抵抗両端の電圧に対して電流の位相はどのような関係となるか。次のうちから正しいものを一つ選び、記号で答えなさい。",choices:["同位相である。","π/2 (rad)進む。","π/2 (rad)遅れる。","π (rad)遅れる。"],correct_option_index:0,explanation:"抵抗回路では、オームの法則(v=iR)が瞬時値でも成立するため、電圧と電流の位相は常に同じ（同位相）です。"},
   {id:"2.34",question:"2.34~インダクタンスに交流電圧を加えて電流を流したとき、電圧に対する電流の位相はどうなるか。次のうちから正しいものを一つ選び、記号で答えなさい。",choices:["同位相である。","π/2 (rad)遅れる。","π/2 (rad)進む。","π (rad)遅れる。"],correct_option_index:1,explanation:"インダクタンス（コイル）回路では、電流は電圧に対してπ/2ラジアン(90°)遅れます。"},
   {id:"2.35",question:"2.35~次の文は、インダクタンスに交流電流を流したときの、電流に対する電圧の位相について述べたものである。正しいものを一つ選び、記号で答えなさい。",choices:["同位相である。","π/2 (rad)遅れる。","π/2 (rad)進む。","π (rad)進む。"],correct_option_index:2,explanation:"この問題は「電流に対する電圧」の位相を聞いています。電流が電圧に対してπ/2遅れるということは、逆に電圧が電流に対してπ/2進むことを意味します。"},
@@ -302,32 +302,88 @@
   {id:"2.41",question:"2.41~次の文は、コイルのインピーダンスについて述べたものである。正しいものを一つ選び、記号で答えなさい。",choices:["インピーダンスは抵抗とインダクタンスからなる。","インピーダンスはインダクタンスとリアクタンスからなる。","インピーダンスは抵抗とリアクタンスからなる。","インピーダンスは抵抗とキャパシタンスからなる。"],correct_option_index:2,explanation:"インピーダンスは、交流回路における総合的な抵抗であり、抵抗成分とリアクタンス成分（コイルの場合は誘導性リアクタンス）を合成したものです。"},
   {id:"2.42",question:"2.42~次の式は、抵抗RとリアクタンスXとが直列になった回路のインピーダンスを示したものである。正しいものを一つ選び、記号で答えなさい。",choices:["R + X","R² + X²","√(R² + X²)","√R + √X"],correct_option_index:2,explanation:"インピーダンスZは、抵抗RとリアクタンスXを直角2辺とする直角三角形の斜辺の長さに相当するため、三平方の定理により Z = √(R² + X²) で計算されます。"},
   {id:"2.43",question:"2.43~次の式は、コイルのインピーダンスに関連する関係式を示す。正しいものを一つ選び、記号で答えなさい。ただし、R:抵抗、L:インダクタンス、Z:インピーダンス、θ:位相、f:周波数, ω:角周波数(ω=2πf)である。",choices:["θ = tan⁻¹(ωL/R)","tanθ = (R/ωL)","Z = √R + ωL","Z² = R² + ωL²"],correct_option_index:0,explanation:"インピーダンスの位相角θは、リアクタンス成分(ωL)と抵抗成分(R)の比の逆正接で与えられます。したがって、tanθ = ωL/R であり、θ = tan⁻¹(ωL/R) となります。"},
-  {id:"2.44",question:"2.44~次の単位は電磁気に関する単位の記号を挙げたものであるが、リアクタンスの単位はどれか。正しいものを一つ選び、記号で答えなさい。",choices:["Ω","A/m","H","T"],correct_option_index:0,explanation:"リアクタンスは交流回路における抵抗の一種なので、単位は抵抗と同じΩ（オーム）です。"}
-
+  {id:"2.44",question:"2.44~次の単位は電磁気に関する単位の記号を挙げたものであるが、リアクタンスの単位はどれか。正しいものを一つ選び、記号で答えなさい。",choices:["Ω","A/m","H","T"],correct_option_index:0,explanation:"リアクタンスは交流回路における抵抗の一種なので、単位は抵抗と同じΩ（オーム）です。"},
     ];
 
+    // --- ここから下はメインスクリプト ---
+/* const chapter2Data = {
+        "chapter_number": 2,
+        "chapter_title": "電気と磁気の基礎",
+        "questions": [
+          {"id":"2.1","question":"2.1 次の文は、2つの電荷Q₁, Q₂に働く力について述べたものである。正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"電荷との積が負のとき、2つの電荷の間には引力が働く。"},{"option":"b","text":"2つの電荷に働く力は、電荷の大きさに比例し距離に反比例する。"},{"option":"c","text":"電荷と電荷の間に力が働く現象をレンツの法則という。"},{"option":"d","text":"電荷 Q₁と Q₂ の間の距離を2倍にすると、力は元の1/2となる。"}],"correct_option":"a","explanation":"クーロンの法則によれば、2つの点電荷の間に働く力は、電荷の積が負（異符号）のときに引力となります。力は距離の2乗に反比例するため、距離が2倍になると力は1/4になります。"},
+          {"id":"2.2","question":"2.2 1秒間に3.1×10¹⁸個の自由電子が導体を移動するときの電流の値はいくらか。次の中から最も近い値を一つ選び、記号で答えなさい。ただし、電子1個の電荷は1.6×10⁻¹⁹Cとする。","choices":[{"option":"a","text":"3.8 A"},{"option":"b","text":"5.0 A"},{"option":"c","text":"0.5 A"},{"option":"d","text":"2.0 A"}],"correct_option":"c","explanation":"電流は単位時間あたりに移動する電荷の量です。電流 I = (電子の数) × (電子1個の電荷) = (3.1×10¹⁸) × (1.6×10⁻¹⁹) = 0.496 A ≈ 0.5 A となります。"},
+          {"id":"2.3","question":"2.3 抵抗のみの回路に3Vの直流電圧を加えたら200mAの直流電流が流れた。このとき回路の抵抗Rはいくらか。次の中から最も近い値を一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"R=7.5 Ω"},{"option":"b","text":"R=15 Ω"},{"option":"c","text":"R=30 Ω"},{"option":"d","text":"R=45Ω"}],"correct_option":"b","explanation":"オームの法則 V=IR より、R = V/I です。電流をアンペアに変換し(200mA = 0.2A)、R = 3V / 0.2A = 15Ω となります。"},
+          {"id":"2.4","question":"2.4 図2.1に示す3本の抵抗からなる回路の合成抵抗Rは何オームか。次の中から最も近いものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"2 kΩ"},{"option":"b","text":"1 kΩ"},{"option":"c","text":"0.5 kΩ"},{"option":"d","text":"0.2 kΩ"}],"correct_option":"b","explanation":"並列接続された2本の1kΩの合成抵抗は (1*1)/(1+1) = 0.5kΩ です。これに直列の0.5kΩを足すと、全体の合成抵抗は 0.5kΩ + 0.5kΩ = 1kΩ となります。"},
+          {"id":"2.5","question":"2.5 次の文は、金属の抵抗率について述べたものである。正しいものを一つ選び、記号で答えよ。","choices":[{"option":"a","text":"電気抵抗は抵抗率に反比例する。"},{"option":"b","text":"抵抗率の逆数を導電率という。"},{"option":"c","text":"抵抗率の単位は(Ω/m)である。"},{"option":"d","text":"抵抗率は形状によって変化する。"}],"correct_option":"b","explanation":"抵抗率は物質固有の値で、その逆数が導電率です。電気抵抗は抵抗率に比例し、単位は[Ω・m]です。"},
+          {"id":"2.6","question":"2.6 磁力線によって磁界の何を表すことができるか。次の中から最も適切なものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"磁界の密度"},{"option":"b","text":"磁界の方向および強さ"},{"option":"c","text":"磁界の位相"},{"option":"d","text":"磁界の位相および方向"}],"correct_option":"b","explanation":"磁力線は、その接線が磁界の方向を、その密度が磁界の強さを表します。"},
+          {"id":"2.7","question":"2.7 次の式は、材料に加える磁界と材料中の磁束密度の関係を示したものである。次の中から正しいものを一つ選び、記号で答えなさい。ただし、H:磁界の強さ(A/m), B:磁束密度(T), σ:導電率(S/m), μ:透磁率(H/m)である。","choices":[{"option":"a","text":"H = μσB"},{"option":"b","text":"B = μH"},{"option":"c","text":"H = σB"},{"option":"d","text":"B = σH"}],"correct_option":"b","explanation":"磁束密度Bは、磁界の強さHと物質の透磁率μの積で定義されます。"},
+          {"id":"2.8","question":"2.8 次に示す磁束密度Bを表す式の中から正しいものを一つ選び、記号で答えなさい。なお、図2.2に示すようにS: 面積、Φ: 磁束である。","choices":[{"option":"a","text":"B = Φ - S"},{"option":"b","text":"B = S - Φ"},{"option":"c","text":"B = S / Φ"},{"option":"d","text":"B = Φ / S"}],"correct_option":"d","explanation":"磁束密度Bは、単位面積Sあたりの磁束Φとして定義されます。"},
+          {"id":"2.9","question":"2.9 磁束密度の単位はどれか。次の中から正しいものを一つ選び、記号で答えよ。","choices":[{"option":"a","text":"H/m"},{"option":"b","text":"H"},{"option":"c","text":"A/m"},{"option":"d","text":"T"}],"correct_option":"d","explanation":"磁束密度の単位はT (テスラ) です。H/mは透磁率、Hはインダクタンス、A/mは磁界の強さの単位です。"},
+          {"id":"2.10","question":"2.10 次の中から強磁性材料を選びなさい。","choices":[{"option":"a","text":"鉄"},{"option":"b","text":"アルミニウム"},{"option":"c","text":"銅"},{"option":"d","text":"チタン"}],"correct_option":"a","explanation":"強磁性を示す代表的な元素は鉄、ニッケル、コバルトです。アルミニウムやチタンは常磁性体、銅は反磁性体です。"},
+          {"id":"2.11","question":"2.11 次の式は、真直ぐな電線に電流I(A)が流れているとき、電線中心からr (m) 離れた点の磁界の強さ H(A/m) を表わすものである。次の中から正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"H = 2πrI"},{"option":"b","text":"H = I / (2πr)"},{"option":"c","text":"H = 1 / (2πr)"},{"option":"d","text":"H = rI / (2π)"}],"correct_option":"b","explanation":"アンペールの法則から導かれる、無限長直線電流が作る磁界の強さの公式です。"},
+          {"id":"2.12","question":"2.12 次の文は、コイルによって生じる磁界について述べたものである。次の中から正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"磁界の強さはコイルに流す電流に反比例する。"},{"option":"b","text":"コイルに流す電流の向きを逆にしても、磁界の向きは変わらない。"},{"option":"c","text":"磁界の強さはコイルからの距離によっては変わらない。"},{"option":"d","text":"磁界の強さはコイルの巻数に比例する。"}],"correct_option":"d","explanation":"コイルが作る磁界の強さは、電流の大きさと巻数に比例します。"},
+          {"id":"2.13","question":"2.13 次の文は、直線状の導体に流した電流とその電流が作る磁界の関係について述べたものである。次の中から正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"磁界は導体の長手方向に発生する。"},{"option":"b","text":"磁界は導体の周方向に発生する。"},{"option":"c","text":"磁界は導体の半径方向に発生する。"},{"option":"d","text":"磁界の向きは導体の向きとは無関係である。"}],"correct_option":"b","explanation":"アンペアの右ネジの法則により、直線電流が作る磁界は電流の周りの周方向に発生します。"},
+          {"id":"2.14","question":"2.14 次の材料のうち、コイルに挿入するとコイルの作る磁束が増加するのはどれか。次のうちから正しいものを一つ選び、記号で答えなさい。ただし、コイルに流す電流は一定とする。","choices":[{"option":"a","text":"鉄棒"},{"option":"b","text":"エボナイト棒"},{"option":"c","text":"銅棒"},{"option":"d","text":"アルミニウム棒"}],"correct_option":"a","explanation":"鉄は透磁率が非常に高い強磁性体なので、コイルに挿入すると磁束が鉄棒に集中し、全体の磁束が増加します。"},
+          {"id":"2.15","question":"2.15 次の文は、コイルのインダクタンスについて述べたものである。正しいものを一つ選び、記号で答えなさい。ただし、コイルが置かれた媒質の電気・磁気的性質は一定とする。","choices":[{"option":"a","text":"コイルの巻数に比例する。"},{"option":"b","text":"コイルの巻数の2乗に比例する。"},{"option":"c","text":"コイルの巻数に反比例する。"},{"option":"d","text":"コイルの巻数の2乗に反比例する。"}],"correct_option":"b","explanation":"コイルの自己インダクタンスは、巻数の2乗に比例します。"},
+          {"id":"2.16","question":"2.16 次の文は、コイルのインダクタンスについて述べたものである。正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"コイルのインダクタンスは巻数で変化するが、形状や寸法により変化することはない。"},{"option":"b","text":"形状と寸法が同じ2つのボビンにコイルを巻いた。このとき、直径の太い線を巻くより細い直径の線を巻く方がインダクタンスは増加する。"},{"option":"c","text":"コイルのインダクタンスが大きいほど、コイルが作る磁束は小さくなる。"},{"option":"d","text":"コイル内に導体が存在すれば、導体に誘導された渦電流により磁束が増加しインダクタンスが増加する。"}],"correct_option":"b","explanation":"同じスペースに巻く場合、細い線の方がより多くの巻数を巻けるため、インダクタンスは増加します。また、コイル内に導体が存在すると、渦電流が作る逆向きの磁束により、実効的なインダクタンスは減少します。"},
+          {"id":"2.17","question":"2.17 次の文は、コイルのインダクタンスについて述べたものである。次の中から正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"コイルの巻数の2乗と媒質の透磁率に反比例する。"},{"option":"b","text":"コイルの巻数の2乗に反比例し、媒質の透磁率に反比例する。"},{"option":"c","text":"コイルの巻数の2乗に比例し、媒質の透磁率に反比例する。"},{"option":"d","text":"コイルの巻数の2乗と媒質の透磁率に比例する。"}],"correct_option":"d","explanation":"コイルのインダクタンスは、巻数の2乗と、コイル内部の媒質の透磁率の両方に比例します。"},
+          {"id":"2.18","question":"2.18 コイルのインダクタンスは、巻数を2倍にすると何倍となるか。次の中から正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"1/2倍"},{"option":"b","text":"√2倍"},{"option":"c","text":"2倍"},{"option":"d","text":"4倍"}],"correct_option":"d","explanation":"コイルのインダクタンスは巻数の2乗に比例するため、巻数が2倍になるとインダクタンスは2² = 4倍になります。"},
+          {"id":"2.19","question":"2.19 一方のコイルに交流電流を流すと近くに置いたもう一方のコイルに起電力が誘導される現象を何というか。次の中から正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"静電誘導"},{"option":"b","text":"表皮効果"},{"option":"c","text":"自己誘導"},{"option":"d","text":"相互誘導"}],"correct_option":"d","explanation":"一方のコイルの電流変化が、もう一方のコイルに電圧を誘導する現象を相互誘導といいます。"},
+          {"id":"2.20","question":"2.20 コイルに流れる電流の変化による磁束の変化によって、そのコイル自身に起電力が生じる現象を何というか。次の中から正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"自己誘導"},{"option":"b","text":"相互誘導"},{"option":"c","text":"静電誘導"},{"option":"d","text":"表皮効果"}],"correct_option":"a","explanation":"コイル自身の電流変化によって、コイル自身に起電力が生じる現象を自己誘導といいます。"},
+          {"id":"2.21","question":"2.21 コイルの中を振幅一定の交流磁束が貫いているとき、コイルに発生する起電力の振幅が大きくなるのは次のうちどれか。正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"交流磁束の周波数が低くなったとき"},{"option":"b","text":"交流磁束の周波数が高くなったとき"},{"option":"c","text":"交流磁束の位相が遅れたとき"},{"option":"d","text":"交流磁束の位相が進んだとき"}],"correct_option":"b","explanation":"誘導起電力の大きさは磁束の時間変化率に比例します。交流磁束の場合、周波数が高いほど時間変化率が大きくなるため、起電力の振幅も大きくなります。"},
+          {"id":"2.22","question":"2.22 図2.3は、コイルの一方に交流定電流電源、もう一方に交流電圧計が接続されている状態を示している。このとき、電源の周波数を2倍にしたら交流電圧計の指示はどうなるか。次の中から正しいものを一つ選び、記号で答えよ。","choices":[{"option":"a","text":"1/2になる。"},{"option":"b","text":"変わらない。"},{"option":"c","text":"2倍になる。"},{"option":"d","text":"4倍になる。"}],"correct_option":"c","explanation":"交流定電流電源は電流の振幅を一定に保ちます。コイルの電圧(誘導起電力)の振幅は、電流の振幅と周波数に比例するため、周波数を2倍にすると電圧も2倍になります。"},
+          {"id":"2.23","question":"2.23 次の文は、電磁誘導について述べたものである。正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"変圧器において1次側に交流電圧を加えると2次側に交流電圧が発生する現象を自己誘導という。"},{"option":"b","text":"永久磁石をコイルに出し入れするとコイルに起電力が発生する現象を相互誘導という。"},{"option":"c","text":"コイルに交流電流を流すと逆起電力が発生する現象を自己誘導という。"},{"option":"d","text":"交流電流を流した試験コイルを導体に近づけると渦電流が誘導される現象を自己誘導という。"}],"correct_option":"c","explanation":"コイルに流れる電流の変化を妨げる向きに発生する起電力（逆起電力）は、自己誘導によるものです。aは相互誘導、bは電磁誘導（自己誘導の一例）、dは相互誘導に近いです。"},
+          {"id":"2.24","question":"2.24 コイルと永久磁石を近づけたり遠ざけたりするとコイルに電圧が発生する。この現象を何というか。","choices":[{"option":"a","text":"自己誘導"},{"option":"b","text":"相互誘導"},{"option":"c","text":"静電誘導"},{"option":"d","text":"電磁誘導"}],"correct_option":"d","explanation":"磁束の時間変化により起電力が誘導される現象を電磁誘導という。"},
+          {"id":"2.25","question":"2.25 ファラデーの電磁誘導の法則によると、誘導起電力は何に比例するか。","choices":[{"option":"a","text":"コイルの抵抗"},{"option":"b","text":"磁束の時間変化率"},{"option":"c","text":"電流"},{"option":"d","text":"周波数の逆数"}],"correct_option":"b","explanation":"誘導起電力 E は磁束 Φ の時間変化率 dΦ/dt に比例する。"},
+          {"id":"2.26","question":"2.26 コイルに鉄心を入れるとインダクタンスはどうなるか。","choices":[{"option":"a","text":"増加する"},{"option":"b","text":"減少する"},{"option":"c","text":"変化しない"},{"option":"d","text":"場合によって異なる"}],"correct_option":"a","explanation":"鉄心は透磁率が高く磁束を増大させるためインダクタンスが増加する。"},
+          {"id":"2.27","question":"2.27 1 turn のコイルを 10 turn に巻き直した場合、インダクタンスは理論上何倍になるか。","choices":[{"option":"a","text":"10 倍"},{"option":"b","text":"20 倍"},{"option":"c","text":"100 倍"},{"option":"d","text":"1/10"}],"correct_option":"c","explanation":"インダクタンスは巻数の 2 乗に比例するため 10² = 100 倍。"},
+          {"id":"2.28","question":"2.28 誘導性リアクタンス X_L の式として正しいものを選びなさい。","choices":[{"option":"a","text":"X_L = 2πfL"},{"option":"b","text":"X_L = 1/(2πfL)"},{"option":"c","text":"X_L = R/L"},{"option":"d","text":"X_L = L/R"}],"correct_option":"a","explanation":"誘導性リアクタンスは角周波数 ω=2πf とインダクタンス L の積。"},
+          {"id":"2.29","question":"2.29 周波数が 0 Hz のとき、コイルのリアクタンス X_L はどうなるか。","choices":[{"option":"a","text":"0 Ω"},{"option":"b","text":"無限大"},{"option":"c","text":"-j Ω"},{"option":"d","text":"√2 Ω"}],"correct_option":"a","explanation":"直流(0 Hz) では X_L = 2πfL = 0 となる。"},
+          {"id":"2.30","question":"2.30 コイルの Q 値は一般に何の指標か。","choices":[{"option":"a","text":"エネルギー損失係数"},{"option":"b","text":"共振鋭度"},{"option":"c","text":"透磁率"},{"option":"d","text":"磁束"}],"correct_option":"b","explanation":"Q 値はコイルの共振の鋭さを表す品質係数である。"},
+          {"id":"2.31","question":"2.31 コイルとコンデンサを直列接続した回路が共振する条件はどれか。","choices":[{"option":"a","text":"X_L = X_C"},{"option":"b","text":"R = X_L"},{"option":"c","text":"R = X_C"},{"option":"d","text":"Z = 0"}],"correct_option":"a","explanation":"直列共振は誘導性リアクタンスと容量性リアクタンスが等しくなるときに生じる。"},
+          {"id":"2.32","question":"2.32 コイルの銅損は主に何によって決まるか。","choices":[{"option":"a","text":"抵抗"},{"option":"b","text":"インダクタンス"},{"option":"c","text":"周波数"},{"option":"d","text":"巻数"}],"correct_option":"a","explanation":"銅損は I²R 損であり導線抵抗に比例する。"},
+          {"id":"2.33","question":"2.33 コイルで発生する渦電流損失を低減する方法として適切なものはどれか。","choices":[{"option":"a","text":"太い銅線を使う"},{"option":"b","text":"鉄心をラミネートする"},{"option":"c","text":"巻数を増やす"},{"option":"d","text":"周波数を上げる"}],"correct_option":"b","explanation":"薄い鋼板を積層し絶縁することで鉄心内の渦電流経路を分断し損失を減らす。"},
+          {"id":"2.34","question":"2.34 コイルの自己インダクタンス L の単位はどれか。","choices":[{"option":"a","text":"H (ヘンリー)"},{"option":"b","text":"T (テスラ)"},{"option":"c","text":"Ω (オーム)"},{"option":"d","text":"F (ファラド)"}],"correct_option":"a","explanation":"インダクタンスの国際単位はヘンリー (H)。"},
+          {"id":"2.35","question":"2.35 コイルと抵抗を直列にした AC 回路で、電流が電圧より 45° 遅れている。このとき X_L と R の関係はどれか。","choices":[{"option":"a","text":"X_L = R"},{"option":"b","text":"X_L = 0"},{"option":"c","text":"X_L = 2R"},{"option":"d","text":"R = 2X_L"}],"correct_option":"a","explanation":"位相遅れが 45° のとき、tanθ = X_L / R = 1 より X_L = R。"},
+          {"id":"2.36","question":"2.36 直列 R-L 回路のインピーダンス Z を表す式はどれか。","choices":[{"option":"a","text":"Z = R + jX_L"},{"option":"b","text":"Z = √(R² + X_L²)"},{"option":"c","text":"Z = X_L - R"},{"option":"d","text":"Z = R/X_L"}],"correct_option":"b","explanation":"実数 R と虚数 X_L の長さの平方根で与えられる。"},
+          {"id":"2.37","question":"2.37 コア材のヒステリシス損失は周波数 f の何乗に比例するか。","choices":[{"option":"a","text":"f"},{"option":"b","text":"f²"},{"option":"c","text":"√f"},{"option":"d","text":"1/f"}],"correct_option":"a","explanation":"ヒステリシス損失は周波数に一次比例する。"},
+          {"id":"2.38","question":"2.38 コイルのリアクタンス X_L が 10 Ω のとき、周波数を 2 倍にすると X_L はどうなるか。","choices":[{"option":"a","text":"5 Ω"},{"option":"b","text":"10 Ω"},{"option":"c","text":"20 Ω"},{"option":"d","text":"40 Ω"}],"correct_option":"c","explanation":"X_L は周波数に比例するため 2 倍になる。"},
+          {"id":"2.39","question":"2.39 コイルのリアクタンスについて正しい記述を選べ。","choices":[{"option":"a","text":"インダクタンスとリアクタンスは逆数の関係にある。"},{"option":"b","text":"リアクタンスは周波数によらず一定である。"},{"option":"c","text":"直流ではリアクタンスは無限大となる。"},{"option":"d","text":"インダクタンスが一定のとき、リアクタンスは周波数に比例する。"}],"correct_option":"d","explanation":"コイルのリアクタンス Xₗ = 2πfL の式から、インダクタンスLが一定であれば、リアクタンスは周波数fに比例することがわかります。直流(f=0)ではリアクタンスは0になります。"},
+          {"id":"2.40","question":"2.40 試験周波数10kHz、抵抗3.0Ω、インダクタンス63.7μHの試験コイルのインピーダンスに最も近い値を選べ。","choices":[{"option":"a","text":"2.6 Ω"},{"option":"b","text":"5 Ω"},{"option":"c","text":"16 Ω"},{"option":"d","text":"25 Ω"}],"correct_option":"b","explanation":"リアクタンス Xₗ = 2πfL = 2π(10×10³) (63.7×10⁻⁶) ≈ 4.0Ω。インピーダンス Z = √(3² + 4²) = √25 = 5Ω。"},
+          {"id":"2.41","question":"2.41 コイルのインピーダンスについて正しい記述を選べ。","choices":[{"option":"a","text":"インピーダンスは抵抗とインダクタンスからなる。"},{"option":"b","text":"インピーダンスはインダクタンスとリアクタンスからなる。"},{"option":"c","text":"インピーダンスは抵抗とリアクタンスからなる。"},{"option":"d","text":"インピーダンスは抵抗とキャパシタンスからなる。"}],"correct_option":"c","explanation":"インピーダンスは、交流回路における総合的な抵抗であり、抵抗成分とリアクタンス成分（コイルの場合は誘導性リアクタンス）を合成したものです。"},
+          {"id":"2.42","question":"2.42 抵抗RとリアクタンスXが直列に接続された回路のインピーダンスを表す式として正しいものを選べ。","choices":[{"option":"a","text":"R + X"},{"option":"b","text":"R² + X²"},{"option":"c","text":"√(R² + X²)"},{"option":"d","text":"√R + √X"}],"correct_option":"c","explanation":"インピーダンスZは、抵抗RとリアクタンスXを直角 2 辺とする直角三角形の斜辺の長さに相当するため、Z = √(R² + X²) で計算されます。"},
+          {"id":"2.43","question":"2.43 コイルのインピーダンスに関する式として正しいものを選べ (R:抵抗, L:インダクタンス, Z:インピーダンス, θ:位相, ω:角周波数(ω=2πf))。","choices":[{"option":"a","text":"θ = tan⁻¹(ωL/R)"},{"option":"b","text":"tanθ = (R/ωL)"},{"option":"c","text":"Z = √R + ωL"},{"option":"d","text":"Z² = R² + ωL²"}],"correct_option":"a","explanation":"インピーダンスの位相角θはリアクタンス成分(ωL)と抵抗成分(R)の比の逆正接で与えられます。したがって、θ = tan⁻¹(ωL/R) となります。"},
+          {"id":"2.44","question":"2.44 次の単位は電磁気に関する単位の記号を挙げたものであるが、リアクタンスの単位はどれか。正しいものを一つ選び、記号で答えなさい。","choices":[{"option":"a","text":"Ω"},{"option":"b","text":"A/m"},{"option":"c","text":"H"},{"option":"d","text":"T"}],"correct_option":"a","explanation":"リアクタンスは交流回路における抵抗の一種なので、単位は抵抗と同じΩ（オーム）です。"},
+*/
+    const letterIdx = ['a','b','c','d']; 
 
-=======
-];
->>>>>>> 6e6d08a (index.htmlの変更を保存)
-
-    // --- DOM取得 ---
-    const progressText = document.getElementById('progress-text');
-    const questionText = document.getElementById('question-text');
     const speakButton = document.getElementById('speak-button');
     const pauseButton = document.getElementById('pause-button');
     const choicesContainer = document.getElementById('choices-container');
     const explanationContainer = document.getElementById('explanation-container');
     const prevButton = document.getElementById('prev-button');
     const nextButton = document.getElementById('next-button');
+    const progressText = document.getElementById('progress-text');
+    const questionText = document.getElementById('question-text');
 
-    let currentChapter = 1;
-    let filteredQuizData = quizData.filter(q => q.id.startsWith('1.'));
-    let currentQuestion = 0;
+    let currentChapter = 2;
+    let filteredQuizData = quizData.filter(q => q.id.startsWith('2.'));
     let isAnswered = false;
 
     function loadQuestion(questionIndex) {
-      const q = filteredQuizData[questionIndex];
+      const rawQ = filteredQuizData[questionIndex];
+      // ユーザ提供データをそのまま使い、表示時に変換する
+      let choices = Array.isArray(rawQ.choices)
+        ? (typeof rawQ.choices[0] === 'string' ? rawQ.choices : rawQ.choices.map(c => c.text))
+        : [];
+      let correctIdx = (typeof rawQ.correct_option_index === 'number')
+        ? rawQ.correct_option_index
+        : letterIdx.indexOf((rawQ.correct_option || '').toLowerCase());
+      if (correctIdx < 0) correctIdx = 0;
+      // 次回アクセス用に正規化済み情報を保存
+      rawQ.choices = choices;
+      rawQ.correct_option_index = correctIdx;
+      const q = rawQ;
       currentQuestion = questionIndex;
       isAnswered = false;
       // 進捗表示
@@ -379,12 +435,12 @@
 
     prevButton.addEventListener('click', () => {
       let idx = currentQuestion - 1;
-      if (idx < 0) idx = quizData.length - 1;
+      if (idx < 0) idx = filteredQuizData.length - 1;
       loadQuestion(idx);
     });
     nextButton.addEventListener('click', () => {
       let idx = currentQuestion + 1;
-      if (idx >= quizData.length) idx = 0;
+      if (idx >= filteredQuizData.length) idx = 0;
       loadQuestion(idx);
     });
 
