@@ -78,6 +78,15 @@
       gap: 0.7rem;
       margin-top: 0.5rem;
     }
+
+    /* 横幅が十分ある場合は2列レイアウトに */
+    @media (min-width: 600px) {
+      #choices-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     .choice-btn {
       font-size: 1.08rem;
       padding: 0.9em 1em;
@@ -190,11 +199,49 @@
         padding: 0.6em 0.3em;
       }
     }
+
+    /* ---------- Tablet (<=900px) ---------- */
+    @media (max-width: 900px) {
+      #quiz-container { max-width: 92vw; }
+      #question-text  { font-size: 1.1rem; }
+      .choice-btn     { font-size: 1.02rem; }
+    }
+
+    /* ---------- Small phones (<=450px) ---------- */
+    @media (max-width: 450px) {
+      #navigation-container { flex-direction: column; }
+      #navigation-container button { width: 100%; }
+
+      /* スマホ縦持ちでも読みやすいレイアウト */
+      #question-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+      }
+      #question-text {
+        white-space: normal;
+        overflow: visible;
+        line-height: 1.6;
+      }
+      #speak-button, #pause-button {
+        align-self: flex-end;
+      }
+
+      .chapter-buttons {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.3rem;
+      }
+      .chapter-buttons button {
+        min-width: 5rem;
+        margin-right: 0.3rem;
+      }
+    }
   </style>
 </head>
 <body>
   <h1>ＮＤＩ学習ツール</h1>
-  <div style="margin-bottom: 1em;">
+  <div class="chapter-buttons" style="margin-bottom: 1em;">
     <button id="chapter1-btn">第一章</button>
     <button id="chapter2-btn">第二章</button>
     <button id="chapter3-btn">第三章</button>
