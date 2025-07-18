@@ -249,6 +249,11 @@
     <button id="chapter5-btn">第五章</button>
     <button id="chapter6-btn">第六章</button>
   </div>
+  <!-- 検索バー -->
+  <div id="search-container" style="margin-bottom:1em;display:flex;gap:0.5em;align-items:center;">
+    <input type="search" id="search-input" placeholder="キーワード または ID (例 6.42)" style="flex:1;padding:0.6em;font-size:1rem;"/>
+    <button id="search-clear-btn" title="クリア" style="padding:0.6em 0.9em;font-size:1rem;">✖️</button>
+  </div>
   <div id="quiz-container">
     <div id="progress-text"></div>
     <div id="question-container">
@@ -616,10 +621,15 @@
     const prevButton = document.getElementById('prev-button');
     const nextButton = document.getElementById('next-button');
     const progressText = document.getElementById('progress-text');
+const searchInput = document.getElementById('search-input');
+const searchClearBtn = document.getElementById('search-clear-btn');
     const questionText = document.getElementById('question-text');
 
     let currentChapter = 1;
+    // 章でフィルタ後のデータを保持し、検索時のベースにする
+    let baseFilteredData = [];
     let filteredQuizData = quizData.filter(q => q.id.startsWith('1.'));
+    baseFilteredData = filteredQuizData;
     let isAnswered = false;
 
     function loadQuestion(questionIndex) {
@@ -685,7 +695,35 @@
       }, 50);
     }
 
-    prevButton.addEventListener('click', () => {
+    // --- 検索／番号ジャンプ機能 ---
+function runSearch() {
+  const term = searchInput.value.trim();
+  if (!term) {
+    filteredQuizData = baseFilteredData;
+    loadQuestion(0);
+    return;
+  }
+  // ID 直接ジャンプ
+  const directIdx = baseFilteredData.findIndex(q => q.id === term);
+  if (directIdx !== -1) {
+    filteredQuizData = baseFilteredData;
+    loadQuestion(directIdx);
+    return;
+  }
+  // キーワード検索 (問題文 + 解説)
+  const lower = term.toLowerCase();
+  const results = baseFilteredData.filter(q => (q.question && q.question.toLowerCase().includes(lower)) || (q.explanation && q.explanation.toLowerCase().includes(lower)));
+  if (results.length > 0) {
+    filteredQuizData = results;
+    loadQuestion(0);
+  } else {
+    alert('該当する問題が見つかりません');
+  }
+}
+searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
+searchClearBtn.addEventListener('click', () => { searchInput.value = ''; filteredQuizData = baseFilteredData; loadQuestion(0); });
+
+prevButton.addEventListener('click', () => {
       let idx = currentQuestion - 1;
       if (idx < 0) idx = filteredQuizData.length - 1;
       loadQuestion(idx);
@@ -797,31 +835,37 @@
       document.getElementById('chapter1-btn').addEventListener('click', () => {
         currentChapter = 1;
         filteredQuizData = quizData.filter(q => q.id.startsWith('1.'));
+        baseFilteredData = filteredQuizData;
         loadQuestion(0);
       });
       document.getElementById('chapter2-btn').addEventListener('click', () => {
         currentChapter = 2;
         filteredQuizData = quizData.filter(q => q.id.startsWith('2.'));
+baseFilteredData = filteredQuizData;
         loadQuestion(0);
       });
       document.getElementById('chapter3-btn').addEventListener('click', () => {
         currentChapter = 3;
         filteredQuizData = quizData.filter(q => q.id.startsWith('3.'));
+baseFilteredData = filteredQuizData;
         loadQuestion(0);
       });
       document.getElementById('chapter4-btn').addEventListener('click', () => {
         currentChapter = 4;
         filteredQuizData = quizData.filter(q => q.id.startsWith('4.'));
+baseFilteredData = filteredQuizData;
         loadQuestion(0);
       });
       document.getElementById('chapter5-btn').addEventListener('click', () => {
         currentChapter = 5;
         filteredQuizData = quizData.filter(q => q.id.startsWith('5.'));
+baseFilteredData = filteredQuizData;
         loadQuestion(0);
       });
       document.getElementById('chapter6-btn').addEventListener('click', () => {
         currentChapter = 6;
         filteredQuizData = quizData.filter(q => q.id.startsWith('6.'));
+baseFilteredData = filteredQuizData;
         loadQuestion(0);
       });
     });
