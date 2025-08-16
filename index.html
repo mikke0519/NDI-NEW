@@ -6867,7 +6867,10 @@
     // ID から章番号を抽出 (金属材料: 1.2.x → 2)
     function getChapterNum(id) {
        const parts = id.split('.');
-       if (parts.length >= 3) return Number(parts[1]);
+       // 金属材料のみ第1.2.x → 2 のルール、それ以外(MT-2, ET-2)は先頭の数字を章番号とする
+       if (activeQuizData === quizData_metal) {
+         if (parts.length >= 3) return Number(parts[1]);
+       }
        return Number(parts[0]);
      }
      let baseFilteredData = [];
